@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center" id="top-bar">
+      <img src="/assets/img/burger.png">
+      <h1>Eat-A-Burger</h1>
+    </div>
+
+    <div class="col-4 offset-2">
+      {{#each burger_data}}
+        {{#unless devoured}}
+          <div class="row">
+            <div class="col-8">
+              {{ this.id }}. {{ this.burger_name }}
+            </div>
+            <div class="col-4">
+              <button class="btn btn-success devoured-burger" data-id="{{ this.id }}">Devour it!</button>
+            </div>
+          </div>
+        {{/unless}}
+      {{/each}}
+    </div>
+
+    <div class="col-4">
+      {{#each burger_data}}
+        {{#if devoured}}
+          <div class="row">
+            <div class="col-12">
+              {{ id }}. {{ burger_name }}
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center enter_section">
+      <form action="/burgers/create" method="POST">
+        <input type="text" class="form-control" name="burger_name" id="enter_text">
+        <button type="submit" class="btn btn-primary" id="enter_text_button">Submit</button>
+      </form>
+      <p>Enter a burger you want to eat and click the "Submit" button</p>
+    </div>
+  </div>
+</div>
